@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Minimalist App</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h2>Masuk Akun</h2>
+        
+        <div th:if="${param.error}" class="alert-error">
+            Username atau password salah!
+        </div>
+        <div th:if="${param.logout}" class="alert-success">
+            Anda telah berhasil logout.
+        </div>
+
+        <form th:action="@{/login}" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Masukkan username" required autofocus />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Masukkan password" required />
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <a th:href="@{/register}" class="link">Belum punya akun? Daftar di sini</a>
+    </div>
+</body>
+</html>

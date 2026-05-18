@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Minimalist App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h2>Buat Akun Baru</h2>
+        <form th:action="@{/register}" th:object="${request}" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" th:field="*{username}" placeholder="Pilih username" required autofocus />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" th:field="*{password}" placeholder="Buat password" required />
+            </div>
+            <div class="form-group">
+                <label for="nama">Nama Lengkap</label>
+                <input type="text" id="nama" th:field="*{nama}" placeholder="Masukkan nama lengkap" required />
+            </div>
+            <div class="form-group">
+                <label for="alamat">Alamat</label>
+                <textarea id="alamat" th:field="*{alamat}" rows="3" placeholder="Masukkan alamat lengkap" required></textarea>
+            </div>
+            <button type="submit">Daftar Sekarang</button>
+        </form>
+        <a th:href="@{/login}" class="link">Sudah punya akun? Login di sini</a>
+    </div>
+</body>
+</html>

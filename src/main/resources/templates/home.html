@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Minimalist App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container home-container">
+        <h2>Selamat Datang, <span th:text="${user.username}"></span>!</h2>
+        
+        <div class="profile-info">
+            <h3>Informasi Profil Anda</h3>
+            <p><strong>Nama</strong> : <span th:text="${profile.nama}"></span></p>
+            <p><strong>Alamat</strong> : <span th:text="${profile.alamat}"></span></p>
+        </div>
+
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" class="btn-danger">Logout</button>
+        </form>
+    </div>
+</body>
+</html>
